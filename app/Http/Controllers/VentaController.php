@@ -13,24 +13,25 @@ use App\Models\Tipo;
 use App\Models\Parametro; 
 class VentaController extends Controller
 {
-    const PAGINATION=4; 
-    public function index() 
+    const PAGINATION=8; 
+    /**public function index() 
     { 
- 
-        $venta = CabeceraVenta::where('estado','=','1')->paginate($this::PAGINATION);                 
+        $venta = CabeceraVenta::where('estado','=','1')->
+        paginate($this::PAGINATION);                 
         return view('movimiento.registro ventas.index',compact('venta')); 
     } 
-    /**public function index(Request $request)
+    */
+    public function index(Request $request)
     {
         $buscarpor = $request->get('buscarpor');
-        $ventas = CabeceraVenta::join('tipos','tipos.idtipo','=','cabecera_ventas.idtipo')
+        $venta = CabeceraVenta::join('tipos','tipos.idtipo','=','cabecera_ventas.idtipo')
         ->where("cabecera_ventas.estado","=","1")->where("tipos.descripcion","like","%". $buscarpor ."%")
         ->select('cabecera_ventas.*')
         ->paginate($this::PAGINATION);
         
-        return view("mantenedor.ventas.index",compact('ventas', 'buscarpor'));
+        return view("movimiento.registro ventas.index",compact('venta', 'buscarpor'));
     }
-    */
+    
 
     /**
      * Show the form for creating a new resource.

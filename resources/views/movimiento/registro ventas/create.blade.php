@@ -31,7 +31,7 @@
 
             <div class="form-group col-md-3">
                 <label for="seltipo">Tipo</label>
-                <select class="form-control" id="seltipo" name="seltipo" onchange="mostrarTipo()">
+                <select class="form-control selectpicker" id="seltipo" name="seltipo" onchange="mostrarTipo()">
                     <option value="0">- Seleccione Tipo -</option>
                     @foreach($tipo as $itemtipo)
                         <option value="{{$itemtipo['idtipo']}}" >{{$itemtipo['descripcion']}}</option> 
@@ -41,7 +41,7 @@
 
             <div class="form-group col-md-3">
                 <label for="nrodoc">Nro. Documento</label>
-                <input type="text" class="form-control" name="nrodoc" id="nrodoc"> 
+                <input type="text" class="form-control" name="nrodoc" id="nrodoc" readonly> 
             </div>
         </div>
 
@@ -61,12 +61,12 @@
 
             <div class="form-group col-md-3">
                 <label for="ruc">RUC/DNI</label>
-                <input type="text" class="form-control" name="ruc" id="ruc">
+                <input type="text" class="form-control" name="ruc" id="ruc" readonly>
             </div>
 
             <div class="form-group col-md-3">
                 <label for="direccion">Dirección</label>
-                <input type="text" class="form-control" name="direccion" id="direccion">
+                <input type="text" class="form-control" name="direccion" id="direccion" readonly>
             </div>
         </div>
 
@@ -84,12 +84,12 @@
 
             <div class="form-group col-md-2">
                 <label for="unidad">Unidad</label>
-                <input type="text" class="form-control" name="unidad" id="unidad">
+                <input type="text" class="form-control" name="unidad" id="unidad" readonly>
             </div>
 
             <div class="form-group col-md-2">
                 <label for="precio">Precio</label>
-                <input type="text" class="form-control" name="precio" id="precio">
+                <input type="text" class="form-control" name="precio" id="precio" readonly>
             </div>
 
             <div class="form-group col-md-2">
@@ -106,6 +106,10 @@
                 </button>
             </div>
         </div>
+
+        <div class="col-md-2"> 
+            <input type="text" class="form-control" name="stock" id="stock" hidden>                               
+        </div> 
 
         {{-- Tabla --}}
         <div class="table-responsive mb-3">

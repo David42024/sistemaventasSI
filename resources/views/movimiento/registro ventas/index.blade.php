@@ -8,7 +8,7 @@
  
         <nav class="navbar navbar-light float-right"> 
             <form class="form-inline my-2 my-lg-0" method="GET"> 
-            <input name="buscarpor" class="form-control mr-sm-2" type="search" placeholder="Busqueda por descripcion" aria-label="Search" value=""> 
+            <input name="buscarpor" class="form-control mr-sm-2" type="search" placeholder="Busqueda por descripcion" aria-label="Search" value="{{ $buscarpor }}"> 
                 <button class="btn btn-success my-2 my-sm-0" type="submit">Buscar</button> 
             </form> 
 </nav>     

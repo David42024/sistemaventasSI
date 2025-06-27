@@ -57,9 +57,21 @@ function agregarDetalle()
     { 
         mostrarMensajeError("Por favor seleccione el Cliente");     
         return false; 
+    }
+    tipo = $('#seltipo option:selected').text();     
+    if (tipo=='- Seleccione Tipo -') 
+    { 
+        mostrarMensajeError("Por favor seleccione el Tipo");     
+        return false;    
+    }  
+    cliente = $('#idcliente option:selected').text();
+    if(cliente == '- Seleccione Cliente -')
+    {
+        mostrarMensajeError("Por favor seleccione el Cliente");     
+        return false;    
     }     
     descripcion = $('#idproducto option:selected').text();     
-    if (descripcion=='Seleccione Producto') 
+    if (descripcion=='- Seleccione Producto -') 
     { 
         mostrarMensajeError("Por favor seleccione el Producto");     
         return false;    
@@ -113,7 +125,7 @@ function agregarDetalle()
         controlproducto[cont]=cod_producto; 
         total=total + subtotal[cont];  
                  
-        var fila='<tr class="selected" id="fila'+cont+'"><td style="text-align:center;"><button type="button" class="btn btn-danger btn-xs" onclick="eliminardetalle('+cod_producto+','+cont+');"><i class="fa fa-times"></i></button></td><td style="text-align:right;"><input type="text" name="cod_producto[]" value="'+ cod_producto +'" readonly style="width:50px; text-align:right;"></td><td>'+ descripcion +'</td><td><input type="text" name="unidad[]" value="'+ unidad +'" style="width:140px; text-align:left;"></td><td style="text-align:right;"><input type="number" name="cantidad[]" value="'+ cantidad +'"style="width:80px; text-align:right;" readonly></td><td  style="text-align:right;"><input type="number" name="pventa[]" value="'+ pventa +'" style="width:80px; text-align:right;" readonly></td><td style="text-align:right;">'+number_format(subtotal[cont],2)+'</td></tr>';
+        var fila='<tr class="selected" id="fila'+cont+'"><td style="text-align:center;"><button type="button" class="btn btn-danger btn-xs" onclick="eliminardetalle('+cod_producto+','+cont+');"><i class="fa fa-times"></i></button></td><td style="text-align:right;"><input type="text" name="cod_producto[]" value="'+ cod_producto +'" readonly style="width:50px; text-align:right;"></td><td>'+ descripcion +'</td><td><input type="text" name="unidad[]" value="'+ unidad +'" readonly style="width:140px; text-align:left;"></td><td style="text-align:right;" ><input type="number" name="cantidad[]" value="'+ cantidad +'"style="width:80px; text-align:right;" readonly></td><td  style="text-align:right;"><input type="number" name="pventa[]" value="'+ pventa +'" style="width:80px; text-align:right;" readonly></td><td style="text-align:right;">'+number_format(subtotal[cont],2)+'</td></tr>';
         $('#detalles').append(fila); 
         detalleventa.push({ 
             codigo:cod_producto, 
@@ -129,7 +141,7 @@ function agregarDetalle()
  
 function limpiar(){ 
     $("#cantidad").val(0); 
-    $("#precio").val(0); 
+    //$("#precio").val(0); 
    } 
  
 /* Eliminar productos */ 
